@@ -39,6 +39,8 @@ def cost_per_class(annual_cost, credits):
     """Give back what one 50-minute CS 1430 class meeting costs."""
     return annual_cost / credits * CS1430_CREDITS / CS1430_MEETINGS_PER_SEMESTER / SEMESTERS_PER_YEAR
 
+def Worth_it(annual_cost, friends):
+    return annual_cost / friends
 
 # ---- PROGRAM ----
 
@@ -56,6 +58,7 @@ def main():
         print("3. Cost per class day")
         print("4. Cost per credit")
         print("5. Cost per CS 1430 class meeting")
+        print("6. Cost per friend")
         print("Q. Quit")
 
         choice = input("Choose an option: ")
@@ -74,7 +77,9 @@ def main():
             print(f"Cost per credit: ${cost_per_credit(annual_cost, credits):.2f}")
         elif choice == "5":
             print(f"Cost per CS 1430 class meeting: ${cost_per_class(annual_cost, credits):.2f}")
-
+        elif choice == "6":
+            friends = int(input("How many new friends have you made at your college?: "))
+            print(f"Cost per friend: ${Worth_it(annual_cost, friends):.2f}")
 # ---- LAUNCH: do not change ----
 if __name__ == "__main__":
     main()
